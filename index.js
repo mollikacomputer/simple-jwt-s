@@ -1,11 +1,12 @@
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 5000;
-require('dotenv').config();
 const cors = require('cors');
+const app = express();
+require('dotenv').config();
+const port = process.env.PORT || 5000;
 
+// middleware
 app.use(cors());
-app.use(express());
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Testing JWT Server')
@@ -14,9 +15,10 @@ app.get('/', (req, res) => {
 // login route
 app.post('/login', (req, res) =>{
     const user = req.body;
+    res.send({success: true})
     console.log(user);
-    res.send({success: true});
-});
+})
+
 
 app.listen(port, (req, res) =>{
     console.log(" Listening to port ", port);
