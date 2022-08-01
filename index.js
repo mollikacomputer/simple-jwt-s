@@ -57,7 +57,7 @@ app.get('/orders', verifyJWT, (req, res) => {
     res.send([{id:1, item: 'sunglass'}, {id:2, item: 'moonglass'} ])
 })
 
-app.listen(port, (req, res) =>{
+app.listen(port, () =>{
     console.log(" Listening to port ", port);
 });
 
